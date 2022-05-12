@@ -1,0 +1,31 @@
+using System;
+
+public class Strings
+{
+ 
+ public void RemoveVowels(string str) {
+        
+       //remove vowel : a,e,i,o,u
+       string final = "";
+       foreach(char c in str)
+       {
+             if(c != 'a' && c != 'e' && c != 'i' 
+             && c != 'o' && c != 'u')
+             {
+                 final += c;
+             }
+       }
+       
+       Console.Write(final);
+       
+    }
+    
+    public static void Main()
+    {
+        Strings s = new Strings();
+        
+        
+        s.RemoveVowels("anshika");
+    }
+    
+}
