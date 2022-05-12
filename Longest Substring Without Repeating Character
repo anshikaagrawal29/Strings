@@ -1,0 +1,38 @@
+public class Solution {
+    public int LengthOfLongestSubstring(string s) {
+        
+        Dictionary<char, int> d = new Dictionary<char, int>();
+        Dictionary<string,int> rd = new Dictionary<string, int>();
+        
+        string f = "";
+        foreach(char c in s)
+        {
+            if(d.ContainsKey(c))
+            {
+                if(!rd.ContainsKey(f))
+                {
+                    rd.Add(f, f.Length);
+                }
+                d[c]++;
+                f ="";
+                f += c;
+            }
+            else
+            {
+                d.Add(c,1);
+                f += c;
+                    
+            }
+        }
+        
+        int result = 0;
+        foreach(KeyValuePair<string,int> item in rd)
+        {
+            if(result < item.Value)
+            {
+                result = item.Value;
+            }
+        }
+        return result;
+    }
+}
