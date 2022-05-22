@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+
+class solution
+{
+    public string reverseWords(string s)
+    {
+        Stack<string> s1 = new Stack<string>();
+        //Your code here
+        string str = "";
+        foreach(char c in s)
+        {
+            if(c != '.')
+            {
+                str +=c;
+            }
+            else
+            {
+                s1.Push(str);
+                s1.Push(".");
+                str = "";
+            }
+        }
+        
+        s1.Push(str);
+        
+        string final = "";
+        foreach(string st in s1)
+        {
+            final += st;
+        }
+        return final;
+    }
+        
+    public static void Main()
+    {
+        solution s = new solution();
+        string f = s.reverseWords("i.like.this.program.very.much");
+        Console.Write(f);
+    }
+}
